@@ -459,7 +459,6 @@ Bu proje, sentetik veri üretimi konusunda kapsamlı bir literatür taraması i�
 
 Bu proje şu anda **kapalı kaynak** olup, katkılar kabul edilmemektedir. Ancak:
 
-- 🐛 Bug bildirimleri için Issue açabilirsiniz
 - 💡 Öneri ve geri bildirimlerinizi paylaşabilirsiniz
 - ⭐ Projeyi beğendiyseniz yıldız verebilirsiniz
 
@@ -955,7 +954,6 @@ This project includes a comprehensive literature review on synthetic data genera
 
 This project is currently **closed source** and does not accept contributions. However:
 
-- 🐛 You can open an Issue for bug reports
 - 💡 You can share your suggestions and feedback
 - ⭐ If you like the project, you can give it a star
 
