@@ -1,5 +1,4 @@
 # 🤖 Türkçe Sentetik Veri Üretimi ve Duygu Analizi: Karşılaştırmalı Çalışma
-# 🤖 Turkish Synthetic Data Generation and Sentiment Analysis: Comparative Study
 
 <div align="center">
 
@@ -504,7 +503,7 @@ Bu projeyi faydalı bulduysanız, GitHub'da ⭐ vererek destek olabilirsiniz!
 ---
 ---
 ---
-
+# 🤖 Turkish Synthetic Data Generation and Sentiment Analysis: Comparative Study
 <a name="english-version"></a>
 ## 🇬🇧 English Version
 
