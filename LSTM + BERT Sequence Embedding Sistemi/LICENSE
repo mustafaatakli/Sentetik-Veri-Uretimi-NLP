@@ -1,0 +1,57 @@
+# All Rights Reserved License
+
+Copyright (c) 2025 Mustafa Ataklı  
+All Rights Reserved.  
+
+This project and its source code are proprietary and confidential.  
+No part of this project may be copied, reproduced, modified, distributed, or used  
+in any form or by any means without the prior written permission of the author.  
+
+Unauthorized use, distribution, or modification of this software is strictly prohibited  
+and may result in legal action.
+
+For collaboration, licensing, or partnership inquiries, please contact:  
+📧 atakliim20@gmail.com
+
+---
+
+THIRD-PARTY COMPONENTS
+
+This project uses the following third-party components with their respective licenses:
+
+1. BERT Model (dbmdz/bert-base-turkish-cased)
+   - License: Apache License 2.0
+   - Copyright: Stefan Schweter
+   - URL: https://huggingface.co/dbmdz/bert-base-turkish-cased
+
+2. TensorFlow
+   - License: Apache License 2.0
+   - Copyright: The TensorFlow Authors
+   - URL: https://github.com/tensorflow/tensorflow
+
+3. PyTorch
+   - License: BSD-style License
+   - Copyright: Facebook, Inc. and its affiliates
+   - URL: https://github.com/pytorch/pytorch
+
+4. Transformers (Hugging Face)
+   - License: Apache License 2.0
+   - Copyright: The Hugging Face Team
+   - URL: https://github.com/huggingface/transformers
+
+5. scikit-learn
+   - License: BSD 3-Clause License
+   - Copyright: scikit-learn developers
+   - URL: https://github.com/scikit-learn/scikit-learn
+
+6. pandas
+   - License: BSD 3-Clause License
+   - Copyright: pandas development team
+   - URL: https://github.com/pandas-dev/pandas
+
+7. NumPy
+   - License: BSD 3-Clause License
+   - Copyright: NumPy developers
+   - URL: https://github.com/numpy/numpy
+
+For full license texts of third-party components, please refer to their respective repositories.
