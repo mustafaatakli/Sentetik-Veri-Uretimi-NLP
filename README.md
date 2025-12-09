@@ -669,8 +669,8 @@ Bu proje şu anda **kapalı kaynak** olup, katkılar kabul edilmemektedir. Ancak
 Proje hakkında sorularınız için:
 
 - **Geliştirici**: Mustafa Ataklı
-- **GitHub**: [github.com/kullanici-adi](https://github.com/mustafaatakli)
-- **Email**: [email@example.com](mailto:atakliim20@gmail.com)
+- **GitHub**: [github.com/mustafaatakli](https://github.com/mustafaatakli)
+- **Email**: [atakliim20@gmail.com](mailto:atakliim20@gmail.com)
 
 ---
 
@@ -1176,8 +1176,8 @@ This project is currently **closed source** and does not accept contributions. H
 For questions about the project:
 
 - **Developer**: Mustafa Ataklı
-- **GitHub**: [github.com/kullanici-adi](https://github.com/mustafaatakli)
-- **Email**: [email@example.com](mailto:atakliim20@gmail.com)
+- **GitHub**: [github.com/mustafaatakli](https://github.com/mustafaatakli)
+- **Email**: [atakliim20@gmail.com](mailto:atakliim20@gmail.com)
 
 ---
 
