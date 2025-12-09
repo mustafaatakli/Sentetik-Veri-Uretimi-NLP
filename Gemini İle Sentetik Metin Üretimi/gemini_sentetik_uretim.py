@@ -28,7 +28,7 @@ print("GEMINI API ILE SENTETIK VERI URETIMI")
 print("="*70)
 
 # API Key'inizi buraya girin (veya environment variable kullanın)
-API_KEY = "AIzaSyCAX_9lbx3_7RmpD8MZL1BcY7o8RmNEEs8"  # TODO: API key'inizi buraya yazın
+API_KEY = ""  # TODO: API key'inizi buraya yazın
 
 # Alternatif: Environment variable'dan okuma
 # import os
