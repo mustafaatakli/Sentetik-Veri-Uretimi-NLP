@@ -352,10 +352,6 @@ n_varyant = 40  # (varsayılan: 30)
 
 ⚠️ **ÖNEMLİ**: API key'inizi asla public repository'lere yüklemeyin!
 
-```python
-# ✗ Yanlış
-API_KEY = "AIzaSyCAX_9lbx3_7RmpD8MZL1BcY7o8RmNEEs8"
-
 # ✓ Doğru
 API_KEY = os.getenv('GEMINI_API_KEY')
 ```
