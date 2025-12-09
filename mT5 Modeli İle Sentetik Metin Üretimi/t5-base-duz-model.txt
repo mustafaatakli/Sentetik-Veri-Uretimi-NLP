@@ -1,0 +1,165 @@
+PS C:\Users\matak\Desktop\muh-proje\hafta10odev\gemini> py t5_sentetik_uretim.py    
+2025-12-07 15:48:16.120358: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-12-07 15:48:17.236018: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+[INFO] Cihaz: cuda
+[INFO] Türkçe T5 modeli yukleniyor: google/mt5-base
+You are using the default legacy behaviour of the <class 'transformers.models.t5.tokenization_t5.T5Tokenizer'>. This is expected, and simply means that the `legacy` (previous) behavior will be used so nothing changes for you. If you want to use the new behaviour, set `legacy=False`. This should only be set if you understand what it means, and thoroughly read the reason why this was added as explained in https://github.com/huggingface/transformers/pull/24565
+[INFO] Türkçe T5 modeli hazir
+[INFO] Veri yukleniyor: tekonoloji-haber-baslıkları.csv
+[INFO] Yuklenen cumle sayisi: 100
+
+[INFO] 3000 adet sentetik cumle uretiliyor (T5)...
+T5 Uretim:   0%|                                                                                                                                   | 0/3000 [00:00<?, ?it/s]The following generation flags are not valid and may be ignored: ['early_stopping']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+T5 Uretim: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3000/3000 [1:39:34<00:00,  1.99s/it]
+[BAŞARI] t5_sentetik_teknoloji_haberleri_3000.csv dosyasi kaydedildi (3000 cumle)
+
+============================================================
+5 TEMEL METRİK ANALİZİ (T5)
+============================================================
+
+[INFO] BERT modeli yukleniyor (metrik hesaplama icin)...
+
+============================================================
+[1] TEKİL ORAN (Uniqueness)
+============================================================
+  Toplam cumle: 3000
+  Tekil cumle: 3000
+  TEKIL ORAN: %100.00
+  Durum: ✓ MUKEMMEL
+
+============================================================
+[2] BERTSCORE F1 (Anlamsal Benzerlik)
+============================================================
+  [INFO] BERT ile anlamsal benzerlik olculuyor...
+  [INFO] Her sentetik icin en yakin orijinal cumle bulunuyor (TF-IDF)...
+
+  Precision: 0.4499
+  Recall: 0.4785
+  BERTSCORE F1: 0.4621
+  Durum: ✗ DUSUK
+
+============================================================
+[3] KELIME KAPSAMA (Vocabulary Coverage)
+============================================================
+  Orijinal tekil kelime: 431
+  Sentetik tekil kelime: 3717
+  Ortak kelimeler: 219
+  KELIME KAPSAMA: %50.81
+  Durum: ✗ DUSUK
+
+============================================================
+[4] BENZERLIK SKORU (TF-IDF Cosine Similarity)
+============================================================
+  Ortalama benzerlik: 0.3181
+  Durum: ✗ DENGESIZ
+
+============================================================
+[5] PERPLEXITY SKORU (Anlamsal Dogallik)
+============================================================
+  [INFO] BERT MLM ile cumle dogalligi olculuyor (batch mode)...
+
+  Ortalama perplexity: 42830.60
+  Durum: ✗ ZAYIF (anlamsal olarak zayif cumleler)
+
+============================================================
+GENEL DEGERLENDIRME
+============================================================
+============================================================
+
+BASARI ORANI: 1/5 metrik gecildi
+SONUC: ✗ ZAYIF - Iyilestirme gerekli
+
+============================================================
+[INFO] Dagilim analizleri...
+
+Kelime Sayisi Dagilimi:
+============================================================
+
+BASARI ORANI: 1/5 metrik gecildi
+SONUC: ✗ ZAYIF - Iyilestirme gerekli
+
+============================================================
+[INFO] Dagilim analizleri...
+============================================================
+
+BASARI ORANI: 1/5 metrik gecildi
+SONUC: ✗ ZAYIF - Iyilestirme gerekli
+
+============================================================
+
+BASARI ORANI: 1/5 metrik gecildi
+SONUC: ✗ ZAYIF - Iyilestirme gerekli
+
+============================================================
+============================================================
+
+BASARI ORANI: 1/5 metrik gecildi
+SONUC: ✗ ZAYIF - Iyilestirme gerekli
+
+BASARI ORANI: 1/5 metrik gecildi
+SONUC: ✗ ZAYIF - Iyilestirme gerekli
+
+SONUC: ✗ ZAYIF - Iyilestirme gerekli
+
+
+============================================================
+============================================================
+[INFO] Dagilim analizleri...
+
+Kelime Sayisi Dagilimi:
+
+Kelime Sayisi Dagilimi:
+Kelime Sayisi Dagilimi:
+  Orijinal: Ort=7.2, Min=3, Max=12
+  Orijinal: Ort=7.2, Min=3, Max=12
+  Sentetik: Ort=6.2, Min=5, Max=20
+  Orijinal: Ort=7.2, Min=3, Max=12
+  Orijinal: Ort=7.2, Min=3, Max=12
+  Sentetik: Ort=6.2, Min=5, Max=20
+
+Benzerlik Dagilimi:
+  Min: 0.0000
+  Median: 0.3484
+  Max: 1.0000
+
+============================================================
+  Orijinal: Ort=7.2, Min=3, Max=12
+  Sentetik: Ort=6.2, Min=5, Max=20
+
+Benzerlik Dagilimi:
+  Min: 0.0000
+  Median: 0.3484
+  Max: 1.0000
+  Orijinal: Ort=7.2, Min=3, Max=12
+  Sentetik: Ort=6.2, Min=5, Max=20
+
+Benzerlik Dagilimi:
+  Min: 0.0000
+  Orijinal: Ort=7.2, Min=3, Max=12
+  Sentetik: Ort=6.2, Min=5, Max=20
+
+  Orijinal: Ort=7.2, Min=3, Max=12
+  Sentetik: Ort=6.2, Min=5, Max=20
+  Orijinal: Ort=7.2, Min=3, Max=12
+  Sentetik: Ort=6.2, Min=5, Max=20
+  Orijinal: Ort=7.2, Min=3, Max=12
+  Orijinal: Ort=7.2, Min=3, Max=12
+  Sentetik: Ort=6.2, Min=5, Max=20
+  Orijinal: Ort=7.2, Min=3, Max=12
+  Sentetik: Ort=6.2, Min=5, Max=20
+  Orijinal: Ort=7.2, Min=3, Max=12
+  Orijinal: Ort=7.2, Min=3, Max=12
+  Orijinal: Ort=7.2, Min=3, Max=12
+  Orijinal: Ort=7.2, Min=3, Max=12
+  Sentetik: Ort=6.2, Min=5, Max=20
+
+Benzerlik Dagilimi:
+  Min: 0.0000
+  Median: 0.3484
+  Max: 1.0000
+
+============================================================
+PROGRAM TAMAMLANDI
+============================================================
+Cikti dosyasi: t5_sentetik_teknoloji_haberleri_3000.csv
+============================================================

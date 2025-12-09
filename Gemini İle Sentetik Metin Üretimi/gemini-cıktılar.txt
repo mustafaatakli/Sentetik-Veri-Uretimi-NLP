@@ -1,0 +1,220 @@
+======================================================================
+GEMINI API ILE SENTETIK VERI URETIMI
+======================================================================
+
+[OK] Gemini API baglantisi basarili!
+
+[INFO] BERT modeli yukleniyor (metrik hesaplamalari icin)...
+[OK] GPU kullaniliyor: NVIDIA GeForce RTX 4060 Laptop GPU
+[OK] BERT modeli cuda uzerinde hazir!
+
+
+[INFO] Veri yukleniyor...
+[OK] 100 cumle yuklendi!
+
+[ORNEK] Ilk 5 haber basligi:
+  1. Google şov yapacak Google I/O 2025 canlı yayını
+  2. 12 taksitle alınabilecek en iyi akıllı telefonlar
+  3. Hastaneyi bileğe getiren saat Huawei Watch 5 çok farklı olmuş
+  4. Elektrik giderse sorun yok  3 yıl elektrik veren konteyner vLog
+  5. 25K ekran ve 10100 mAh pil Honor Pad 10 tanıtıldı
+
+======================================================================
+Gemini API ile uretim baslasin mi? (Enter'a basin)
+
+======================================================================
+[BASLIYOR] GEMINI ILE SENTETIK VERI URETIMI
+[BASLANGIC] 100 cumle
+[HEDEF] 3000 cumle
+[MODEL] Gemini 1.5 Flash
+[METRIK HESAPLAMA] BERT + GPU
+[PERPLEXITY ESIK] 50.0
+======================================================================
+
+[AYAR] Her cumleden ~30 varyant uretiliyor...
+
+Gemini ile uretiliyor:   0%|                                                                                                                                                | 0/100 [00:00<?, ?it/s]WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1764868062.631931   30644 alts_credentials.cc:93] ALTS creds ignored. Not running on GCP and untrusted ALTS is not enabled.
+Gemini ile uretiliyor: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 100/100 [23:26<00:00, 14.06s/it] 
+
+[PROGRESS] 10/100 cumle islendi, 300 varyant uretildi
+
+[PROGRESS] 20/100 cumle islendi, 600 varyant uretildi
+
+[PROGRESS] 30/100 cumle islendi, 900 varyant uretildi
+
+[PROGRESS] 40/100 cumle islendi, 1200 varyant uretildi
+
+[PROGRESS] 50/100 cumle islendi, 1500 varyant uretildi
+
+[PROGRESS] 60/100 cumle islendi, 1800 varyant uretildi
+
+[PROGRESS] 70/100 cumle islendi, 2100 varyant uretildi
+
+[PROGRESS] 80/100 cumle islendi, 2400 varyant uretildi
+
+[PROGRESS] 90/100 cumle islendi, 2700 varyant uretildi
+
+[PROGRESS] 100/100 cumle islendi, 3000 varyant uretildi
+
+[INFO] Ilk asamada 3000 cumle uretildi
+[INFO] Tekrarlar temizleniyor...
+[INFO] Tekrar temizleme sonrasi: 3000 cumle
+
+======================================================================
+[ADIM 2] PERPLEXITY ILE KALITE KONTROLU
+======================================================================
+
+[INFO] Perplexity filtreleme basliyor (esik: 50.0)...
+Perplexity hesaplaniyor: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3000/3000 [00:21<00:00, 142.51it/s] 
+
+[SONUC] Perplexity Filtreleme:
+  - Baslangic: 3000 cumle
+  - Filtrelenen: 2795 cumle
+  - Elenen: 205 cumle (%6.8)
+  - Ortalama perplexity: 20.34
+  - Min/Max: 3.24 / 1459.05
+
+[UYARI] Filtreleme sonrasi 2795 cumle kaldi
+[INFO] 205 cumle daha uretiliyor (perplexity kontrollü)...
+
+======================================================================
+[OK] TAMAMLANDI!
+[SONUC] Toplam uretilen: 3000 cumle
+======================================================================
+
+
+[KAYIT] Dosya kaydedildi: gemini_sentetik_teknoloji_haberleri_3000.csv
+
+[ORNEK] Ilk 10 sentetik haber basligi:
+----------------------------------------------------------------------
+1. 2025'te asgari ücretle satın alınabilecek uygun fiyatlı cihazlar.
+2. Amerika'dan Apple'a yönelik ek vergi yaptırımı gelebilir.
+3. Xiaomi cihazları için Android 16 güncelleme yol haritası
+4. Yüksek çözünürlüklü PlayStation 4K TV'leri mercek altında
+5. Trump'ın hedefinde Apple için ek ticari vergiler.
+6. Oyun severler endişeli: Game Pass'ten 5 içerik ayrılık kararı aldı.
+7. Android 16'nın Xiaomi'ye geleceği modeller belli oldu
+8. Yeni nesil vivo T4 Ultra'nın perde arkası
+9. Cupertino'dan 2026 hedefi: Yeni nesil akıllı gözlükler geliyor.
+10. FromSoftware'ın dev oyunu Elden Ring film oluyor! Yönetmeni açıklandı.
+
+
+======================================================================
+5 TEMEL METRIK ANALIZI
+======================================================================
+
+[1] TEKIL ORAN (Uniqueness)
+----------------------------------------------------------------------
+  Toplam cumle: 3000
+  Tekil cumle: 3000
+  Tekrarli cumle: 0
+  TEKIL ORAN: %100.00
+  Durum: ✓ MUKEMMEL
+
+[2] BERTSCORE F1 (Anlamsal Benzerlik)
+----------------------------------------------------------------------
+  Hesaplaniyor (bu 1-2 dakika surebilir)...
+  Precision: 0.6748
+  Recall: 0.7227
+  BERTSCORE F1: 0.6970
+  Durum: ⚠ IYILESTIRILEBILIR
+
+[3] KELIME KAPSAMA (Vocabulary Coverage)
+----------------------------------------------------------------------
+  Orijinal tekil kelime: 434
+  Sentetik tekil kelime: 3634
+  Ortak kelimeler: 413
+  KELIME KAPSAMA: %95.16
+  Durum: ✓ MUKEMMEL
+
+[4] BENZERLIK SKORU (TF-IDF Cosine Similarity)
+----------------------------------------------------------------------
+  Ortalama benzerlik: 0.5307
+  Min/Max: 0.0000 / 1.0000
+  Std sapma: 0.1836
+  BENZERLIK SKORU: 0.5307
+  Durum: ✓ MUKEMMEL (ideal denge)
+
+  Dagilim:
+    Yuksek benzerlik (>0.8): 211 (%7.0)
+    Orta benzerlik (0.5-0.8): 1445 (%48.2)
+    Dusuk benzerlik (<0.5): 1344 (%44.8)
+
+[5] PERPLEXITY SKORU (Anlamsal Dogallik)
+----------------------------------------------------------------------
+  Ortalama perplexity: 20.34
+  Min/Max: 3.24 / 1459.05
+  Std sapma: 35.34
+  PERPLEXITY SKORU: 20.34
+  Durum: ✓ MUKEMMEL (dogal cumleler)
+
+======================================================================
+GENEL DEGERLENDIRME
+======================================================================
+
+BASARI ORANI: 4/5 metrik gecildi
+
+METRIK DURUMU:
+  ✓ Tekil Oran
+======================================================================
+
+BASARI ORANI: 4/5 metrik gecildi
+
+METRIK DURUMU:
+  ✓ Tekil Oran
+
+BASARI ORANI: 4/5 metrik gecildi
+
+METRIK DURUMU:
+  ✓ Tekil Oran
+BASARI ORANI: 4/5 metrik gecildi
+
+METRIK DURUMU:
+  ✓ Tekil Oran
+METRIK DURUMU:
+  ✓ Tekil Oran
+  ✓ Tekil Oran
+  ⚠ BERTScore F1
+  ✓ Kelime Kapsama
+  ✓ Benzerlik Skoru
+  ⚠ BERTScore F1
+  ✓ Kelime Kapsama
+  ✓ Benzerlik Skoru
+  ✓ Kelime Kapsama
+  ✓ Benzerlik Skoru
+  ✓ Benzerlik Skoru
+  ✓ Perplexity
+  ✓ Perplexity
+
+SONUC: ✓ MUKEMMEL - Sentetik veri yuksek kalitede!
+
+SONUC: ✓ MUKEMMEL - Sentetik veri yuksek kalitede!
+
+SONUC: ✓ MUKEMMEL - Sentetik veri yuksek kalitede!
+
+======================================================================
+
+======================================================================
+
+======================================================================
+
+[6] Gorsellestirme olusturuluyor...
+
+[6] Gorsellestirme olusturuluyor...
+[6] Gorsellestirme olusturuluyor...
+[HATA] Gorsellestirme yapilamadi: Invalid format specifier '.3f if bertscore_f1 else 'N/A'' for object of type 'float'
+
+[HATA] Gorsellestirme yapilamadi: Invalid format specifier '.3f if bertscore_f1 else 'N/A'' for object of type 'float'
+
+
+
+======================================================================
+======================================================================
+TAMAMLANDI!
+TAMAMLANDI!
+======================================================================
+Cikti dosyasi: gemini_sentetik_teknoloji_haberleri_3000.csv
+Grafik dosyasi: gemini_sentetik_metrikler.png
+======================================================================
+PS C:\Users\matak\Desktop\muh-proje\hafta10odev\gemini>

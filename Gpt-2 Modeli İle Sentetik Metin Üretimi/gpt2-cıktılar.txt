@@ -1,0 +1,183 @@
+PS C:\Users\matak\Desktop\muh-proje\hafta10odev\gemini> py gpt2_sentetik_uretim.py    
+2025-12-06 21:45:36.283577: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-12-06 21:45:37.684053: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+[INFO] Cihaz: cuda
+[INFO] GPU: NVIDIA GeForce RTX 4060 Laptop GPU
+
+============================================================
+GPT-2 TURKCE ILE SENTETIK VERI URETIMI
+============================================================
+Model: ytu-ce-cosmos/turkish-gpt2
+Hedef: 100 seed -> 3000 sentetik cumle
+Metrikler: Ayni 5 metrik (BERT/Gemini/LSTM karsilastirmasi)
+============================================================
+[BAŞARI] 100 cümle yüklendi
+
+[INFO] 100 seed cumle yuklendi
+[INFO] Hedef: 3000 sentetik cumle
+
+[INFO] GPT-2 ile 3000 sentetik cumle uretiliyor...
+[INFO] 100 seed cumleden ~35 varyant/cumle
+
+[INFO] GPT-2 Turkce modeli yukleniyor...
+[INFO] Model: ytu-ce-cosmos/turkish-gpt2
+[BAŞARI] GPT-2 modeli yuklendi
+[INFO] Parametreler: 124,439,808
+Uretim: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 100/100 [22:05<00:00, 13.25s/it] 
+
+[INFO] 20/100 cumle islendi
+[INFO] Toplam uretilen: 518
+[INFO] Toplam uretilen: 518
+
+[INFO] Toplam uretilen: 518
+
+[INFO] 40/100 cumle islendi
+[INFO] Toplam uretilen: 1057
+
+[INFO] 60/100 cumle islendi
+[INFO] Toplam uretilen: 1575
+
+[INFO] 80/100 cumle islendi
+[INFO] Toplam uretilen: 2065
+
+[INFO] 100/100 cumle islendi
+[INFO] Toplam uretilen: 2586
+
+[BAŞARI] Toplam 2586 cumle uretildi (ham)
+
+[INFO] Tekrarlar temizleniyor...
+[BAŞARI] 2586 tekil cumle
+
+[UYARI] 414 cumle eksik, ek uretim yapiliyor...
+Ek uretim: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 414/414 [03:43<00:00,  1.85it/s] 
+
+[BAŞARI] FINAL: 3000 sentetik cumle hazirlandi
+
+[INFO] GPT-2 modeli bellekten temizleniyor...
+[INFO] GPU memory temizlendi
+
+============================================================
+PERPLEXITY HESAPLAMA (Raporlama amacli)
+============================================================
+[INFO] GPT-2 icin perplexity filtreleme yapilmiyor.
+[INFO] Adil karsilastirma icin 3000 cumle garanti edildi.
+[INFO] Perplexity skorlari sadece kalite raporu icin hesaplanacak.
+
+[INFO] BERT modeli yukleniyor...
+[INFO] BERT modeli hazir
+[INFO] Batch perplexity hesaplama basladi (16 cumle/batch)...
+
+[INFO] Ortalama Perplexity: 78755.50
+[INFO] Perplexity aralik: [361.03, 11248597.00]
+
+[BAŞARI] gpt2_sentetik_teknoloji_haberleri_3000.csv dosyasi kaydedildi (3000 cumle)
+
+============================================================
+5 TEMEL METRİK ANALİZİ (GPT-2)
+============================================================
+
+[INFO] BERT modeli yukleniyor (metrik hesaplama icin)...
+
+============================================================
+[1] TEKİL ORAN (Uniqueness)
+============================================================
+  Toplam cumle: 3000
+  Tekil cumle: 3000
+  TEKIL ORAN: %100.00
+  Durum: ✓ MUKEMMEL
+
+============================================================
+[2] BERTSCORE F1 (Anlamsal Benzerlik)
+============================================================
+  [INFO] BERT ile anlamsal benzerlik olculuyor...
+  [INFO] Her sentetik icin en yakin orijinal cumle bulunuyor (TF-IDF)...
+
+  Precision: 0.7498
+  Recall: 0.9215
+  BERTSCORE F1: 0.8243
+  Durum: ✓ IYI
+
+============================================================
+[3] KELIME KAPSAMA (Vocabulary Coverage)
+============================================================
+  Orijinal tekil kelime: 431
+  Sentetik tekil kelime: 5282
+  Ortak kelimeler: 430
+  KELIME KAPSAMA: %99.77
+  Durum: ✓ MUKEMMEL
+
+============================================================
+[4] BENZERLIK SKORU (TF-IDF Cosine Similarity)
+============================================================
+  Ortalama benzerlik: 0.8987
+  Durum: ✗ DENGESIZ
+
+============================================================
+[5] PERPLEXITY SKORU (Anlamsal Dogallik)
+============================================================
+  [INFO] BERT MLM ile cumle dogalligi olculuyor (batch mode)...
+
+
+  Ortalama perplexity: 78755.50
+  Durum: ✗ ZAYIF (anlamsal olarak zayif cumleler)
+
+============================================================
+GENEL DEGERLENDIRME
+============================================================
+
+BASARI ORANI: 3/5 metrik gecildi
+SONUC: ✓ IYI - Kabul edilebilir kalite
+
+============================================================
+
+[INFO] Dagilim analizleri...
+
+Kelime Sayisi Dagilimi:
+Kelime Sayisi Dagilimi:
+  Orijinal: Ort=7.2, Min=3, Max=12
+  Sentetik: Ort=12.2, Min=5, Max=20
+
+Benzerlik Dagilimi:
+  Min: 0.4688
+  Median: 0.9115
+Kelime Sayisi Dagilimi:
+  Orijinal: Ort=7.2, Min=3, Max=12
+  Sentetik: Ort=12.2, Min=5, Max=20
+
+Benzerlik Dagilimi:
+  Min: 0.4688
+Kelime Sayisi Dagilimi:
+  Orijinal: Ort=7.2, Min=3, Max=12
+  Sentetik: Ort=12.2, Min=5, Max=20
+
+Kelime Sayisi Dagilimi:
+  Orijinal: Ort=7.2, Min=3, Max=12
+Kelime Sayisi Dagilimi:
+  Orijinal: Ort=7.2, Min=3, Max=12
+  Sentetik: Ort=12.2, Min=5, Max=20
+
+  Orijinal: Ort=7.2, Min=3, Max=12
+  Sentetik: Ort=12.2, Min=5, Max=20
+
+
+Benzerlik Dagilimi:
+Benzerlik Dagilimi:
+  Min: 0.4688
+  Median: 0.9115
+  Max: 1.0000
+
+Perplexity Dagilimi:
+Perplexity Dagilimi:
+  Min: 361.03
+  Median: 5328.31
+  Max: 11248597.00
+  Median: 5328.31
+  Max: 11248597.00
+  Max: 11248597.00
+
+============================================================
+PROGRAM TAMAMLANDI
+============================================================
+Cikti dosyasi: gpt2_sentetik_teknoloji_haberleri_3000.csv
+============================================================
+PS C:\Users\matak\Desktop\muh-proje\hafta10odev\gemini>

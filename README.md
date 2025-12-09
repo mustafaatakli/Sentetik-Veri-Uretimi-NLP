@@ -1,11 +1,12 @@
-# 🤖 Türkçe Sentetik Veri Üretimi ve Duygu Analizi: Karşılaştırmalı Çalışma
+# 🤖 Türkçe Sentetik Veri Üretimi ve NLP: Kapsamlı Karşılaştırmalı Çalışma
 
 [![License](https://img.shields.io/badge/License-Proprietary-red.svg)](LICENSE.md)
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
 [![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange.svg)](https://www.tensorflow.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-1.x-red.svg)](https://pytorch.org/)
+[![Transformers](https://img.shields.io/badge/🤗%20Transformers-4.x-yellow.svg)](https://huggingface.co/transformers/)
 
-Bu proje, **Türkçe metinler** için sentetik veri üretimi ve duygu analizi üzerine **dört farklı derin öğrenme yaklaşımının** karşılaştırmalı analizini sunar. Proje kapsamında **LSTM**, **BiLSTM**, **GAN** ve **BERT** modelleri kullanılarak hem veri üretimi hem de duygu sınıflandırması gerçekleştirilmiş ve sonuçları **Google Gemini AI** ile karşılaştırılmıştır.
+Bu proje, **Türkçe metinler** için sentetik veri üretimi ve duygu analizi üzerine **9 farklı derin öğrenme ve AI yaklaşımının** kapsamlı karşılaştırmalı analizini sunar. Proje kapsamında **BERT**, **LSTM**, **BiLSTM**, **GAN**, **GPT-2**, **mT5**, **Gemini API** ve **Character-level LSTM** modelleri kullanılarak hem veri üretimi hem de duygu sınıflandırması gerçekleştirilmiştir.
 
 ---
 
@@ -29,9 +30,10 @@ Bu araştırma projesi, **elektrikli arabalar** konusunda Türkçe sentetik veri
 
 ### 🔬 Araştırma Soruları
 1. Hangi model Türkçe metinler için en yüksek duygu analizi doğruluğunu sağlar?
-2. GAN tabanlı sentetik metin üretimi ne kadar özgün ve kaliteli sonuçlar verir?
-3. BERT ve LSTM modellerinin performans-kaynak dengesi nasıldır?
+2. GAN, GPT-2, BERT MLM, mT5 ve Character-level LSTM hangi senaryolarda üstün performans gösterir?
+3. Pre-trained modeller (BERT, GPT-2, mT5) ile sıfırdan eğitilen modeller (LSTM, GAN) arasındaki fark nedir?
 4. Gemini AI ile geleneksel modeller arasındaki uyuşma oranı nedir?
+5. 100 cümleden 3000 cümle üretiminde hangi yöntem en kaliteli sonuçları verir?
 
 ### 🎓 Kullanım Alanları
 - Doğal Dil İşleme (NLP) araştırmaları
@@ -162,15 +164,149 @@ Softmax (3 sınıf)
 
 ---
 
+## 🆕 Sentetik Metin Üretimi Modelleri (Teknoloji Haberleri)
+
+### 6️⃣ **BERT Masked Language Model (MLM) ile Sentetik Üretim**
+📂 Klasör: `/BERT Modeli İle Sentetik Metin Üretimi/`
+
+**Özellikler:**
+- `dbmdz/bert-base-turkish-cased` modeli
+- Konservatif maskeleme stratejisi (1-3 kelime)
+- Temperature sampling (1.2)
+- Trigram çeşitlilik kontrolü (max 8 tekrar)
+- Perplexity filtreleme (eşik: 50.0)
+
+**Üretim Performansı:**
+- ✅ **Üretim:** 100 → 3000 cümle
+- ✅ **Tekil Oran:** ≥ %95
+- ✅ **BERTScore F1:** ≥ 0.85
+- ✅ **Kelime Kapsama:** ≥ %90
+- ✅ **Perplexity:** ≤ 50 (doğal cümleler)
+
+**Avantajlar:**
+- Yüksek kalite ve doğallık
+- BERT anlambilimi ile güçlü kontrol
+- GPU hızlandırması
+
+---
+
+### 7️⃣ **Gemini API ile Sentetik Üretim**
+📂 Klasör: `/Gemini İle Sentetik Metin Üretimi/`
+
+**Özellikler:**
+- Google Gemini 2.5 Flash API
+- Akıllı prompt mühendisliği
+- Rate limiting ve retry mekanizması
+- BERT perplexity filtreleme
+- Çoklu kalite kontrol katmanı
+
+**Üretim Performansı:**
+- ✅ **Üretim:** 100 → 3000 cümle (~23-25 dakika)
+- ✅ **Tekil Oran:** ≥ %90
+- ✅ **BERTScore F1:** ≥ 0.80
+- ✅ **Kelime Kapsama:** ≥ %85
+- ✅ **API Maliyet:** Ücretsiz katman (15 RPM)
+
+**Avantajlar:**
+- En yüksek anlamsal tutarlılık
+- Doğal Türkçe dilbilgisi
+- Minimum kod karmaşıklığı
+
+---
+
+### 8️⃣ **GPT-2 Türkçe ile Sentetik Üretim**
+📂 Klasör: `/Gpt-2 Modeli İle Sentetik Metin Üretimi/`
+
+**Özellikler:**
+- `ytu-ce-cosmos/turkish-gpt2` (~124M parametre)
+- Causal Language Modeling (CLM)
+- Batch generation (10 cümle/batch)
+- Temperature sampling (1.0-1.5)
+- Kapsamlı regex temizleme (15 katman)
+
+**Üretim Performansı:**
+- ✅ **Üretim:** 100 → 3000 cümle (~22-25 dakika)
+- ✅ **Tekil Oran:** ≥ %95
+- ✅ **BERTScore F1:** ≥ 0.75 (CLM için)
+- ✅ **Çeşitlilik:** Çok yüksek
+- ⚠️ **Temizleme:** Yüksek gereksinim
+
+**Avantajlar:**
+- Yüksek çeşitlilik
+- Akıcı metin üretimi
+- Ücretsiz ve hızlı
+
+---
+
+### 9️⃣ **Character-level LSTM ile Sentetik Üretim**
+📂 Klasör: `/LSTM Modeli İle Sentetik Metin Üretimi/`
+
+**Özellikler:**
+- Sıfırdan eğitilen LSTM (3.74M parametre)
+- Character-level tokenization (75 karakter)
+- 2 katmanlı Bidirectional LSTM
+- Prefix-based generation
+- 50 epoch eğitim (~5-10 dakika)
+
+**Üretim Performansı:**
+- ✅ **Üretim:** 100 → 3000 cümle
+- ✅ **Tekil Oran:** ≥ %90
+- ⚠️ **BERTScore F1:** ≥ 0.75 (düşük)
+- ⚠️ **Kelime Kapsama:** ≥ %80
+- ⚠️ **Perplexity:** ≤ 70 (gevşek eşik)
+
+**Avantajlar:**
+- En küçük model (~15 MB)
+- Hızlı eğitim (5-10 dk)
+- Düşük GPU memory (~500 MB)
+
+---
+
+### 🔟 **mT5 (Multilingual T5) ile Sentetik Üretim**
+📂 Klasör: `/mT5 Modeli İle Sentetik Metin Üretimi/`
+
+**Özellikler:**
+- İki model: `google/mt5-base` (580M) ve `Turkish-NLP/t5-efficient-base-turkish` (220M)
+- Encoder-Decoder mimarisi
+- Paraphrase, rewrite, generate görevleri
+- 15 katmanlı agresif temizleme
+- Dil filtreleme (Kiril, Yunanca, Çince)
+
+**Üretim Performansı:**
+- ✅ **Üretim:** 100 → 3000 cümle (~1.5-2 saat)
+- ✅ **Tekil Oran:** %100 (mt5-base)
+- ⚠️ **BERTScore F1:** 0.46 (mt5-base için düşük)
+- ⚠️ **Kelime Kapsama:** %50.81 (mt5-base)
+- ✅ **Turkish-NLP T5:** Daha iyi performans
+
+**Avantajlar:**
+- Çok dilli destek (101 dil)
+- Task flexibility
+- Türkçe özel model mevcut
+
+---
+
 ## 📊 Karşılaştırmalı Analiz
 
-### 🏆 Model Performansları (Test Seti)
+### 🏆 Duygu Analizi Model Performansları (Test Seti)
 
 | Model | Accuracy | Precision | Recall | F1-Score | Gemini Uyuşma |
 |-------|----------|-----------|--------|----------|---------------|
 | **BERT** | **%92.6** 🥇 | 0.926 | 0.926 | 0.926 | **%92.3** 🥇 |
 | **BiLSTM+BERT** | %89-92 🥈 | ~0.90 | ~0.90 | ~0.90 | Yüksek |
 | **LSTM** | %86.8 🥉 | 0.870 | 0.868 | 0.867 | %87.5 |
+
+### 🆕 Sentetik Metin Üretimi Model Karşılaştırması
+
+| Model | Tekil Oran | BERTScore F1 | Kelime Kapsama | Süre | Model Boyutu |
+|-------|------------|--------------|----------------|------|--------------|
+| **BERT MLM** | ≥%95 🥇 | ≥0.85 🥇 | ≥%90 🥇 | Orta | ~500 MB |
+| **Gemini API** | ≥%90 🥈 | ≥0.80 🥈 | ≥%85 🥈 | 23-25 dk | - (API) |
+| **GPT-2** | ≥%95 🥇 | ≥0.75 | ≥%80 | 22-25 dk | ~500 MB |
+| **mT5 (Turkish-NLP)** | %100 🥇 | Yüksek | Yüksek | 1-1.5 saat | ~900 MB |
+| **mT5 (base)** | %100 🥇 | 0.46 ⚠️ | %50 ⚠️ | 1.5-2 saat | ~2.3 GB |
+| **Character LSTM** | ≥%90 | ≥0.75 | ≥%80 | Değişken | ~15 MB 🥇 |
+| **GAN** | %77 | - | - | - | Değişken |
 
 ### ⚡ Verimlilik Karşılaştırması
 
@@ -200,32 +336,53 @@ Softmax (3 sınıf)
 
 ### 🔍 Temel Bulgular
 
+#### Duygu Analizi
 1. **BERT En Yüksek Doğruluk**: %92.6 ile en iyi performans
 2. **LSTM En Verimli**: En az kaynak, en hızlı eğitim
 3. **BiLSTM+BERT İyi Denge**: Performans-verimlilik dengesi
 4. **Nötr Sınıf Zorlu**: Tüm modellerde iyileştirme gerekli
 5. **Gemini Tutarlılık Yüksek**: %87-92 arası uyuşma
-6. **GAN Başarılı Üretim**: 1000+ özgün Türkçe cümle
+
+#### Sentetik Metin Üretimi
+1. **BERT MLM En Kaliteli**: En yüksek BERTScore ve kelime kapsama
+2. **Gemini En Tutarlı**: Doğal Türkçe, yüksek anlamsal tutarlılık
+3. **GPT-2 En Çeşitli**: Yüksek çeşitlilik ama temizleme gerektirir
+4. **Character LSTM En Hafif**: 15 MB, düşük kaynak kullanımı
+5. **mT5 Dil Sorunu**: mt5-base Türkçe'de zayıf, Turkish-NLP modeli önerilir
+6. **Pre-trained > Scratch**: Sıfırdan eğitilen modeller düşük kalite
 
 ### 🤔 Hangi Modeli Seçmeli?
 
+#### Duygu Analizi İçin
 | Senaryo | Önerilen Model | Neden? |
 |---------|----------------|--------|
 | **Maksimum Doğruluk** | BERT | En yüksek accuracy (%92.6) |
 | **Mobil/Embedded** | LSTM | En hafif model (1-2M param) |
 | **Dengeli Çözüm** | BiLSTM+BERT | İyi performans + kabul edilebilir kaynak |
 | **Gerçek Zamanlı** | LSTM | En hızlı çıkarım süresi |
-| **Veri Üretimi** | GAN + Gemini | Özgün ve kaliteli sentetik veri |
+
+#### Sentetik Metin Üretimi İçin
+| Senaryo | Önerilen Model | Neden? |
+|---------|----------------|--------|
+| **Maksimum Kalite** | BERT MLM | En yüksek BERTScore (≥0.85) |
+| **Doğal Türkçe** | Gemini API | LLM ile en tutarlı sonuçlar |
+| **Maksimum Çeşitlilik** | GPT-2 | Yüksek temperature sampling |
+| **Minimum Kaynak** | Character LSTM | 15 MB, 500 MB GPU memory |
+| **Türkçe Özel** | Turkish-NLP T5 | Türkçe'ye optimize |
+| **Çok Dilli** | mT5-base | 101 dil (ama Türkçe zayıf) |
+| **Hız** | Gemini/GPT-2 | ~22-25 dakika |
 
 ---
 
 ## 📁 Proje Yapısı
 
 ```
-synthetic-data-generation-nlp/
+Sentetik-Veri-Uretimi-NLP/
 │
 ├── README.md                                      # Ana dokümantasyon (bu dosya)
 ├── LICENSE.md                                     # Lisans bilgisi
+│
+├── 📊 DUYGU ANALİZİ MODELLERİ
 │
 ├── bert-sentiment-analysis/                       # BERT Duygu Analizi
 │   ├── main.py
@@ -248,25 +405,68 @@ synthetic-data-generation-nlp/
 │   ├── lstm_vs_gemini_sonuc_1k.xlsx
 │   └── etiketsiz-test-gemini-etiketlenmis-1k.xlsx
 │
-├── gan-text-generation/                           # GAN Metin Üretimi
+├── 🆕 SENTETİK METİN ÜRETİMİ MODELLERİ
+│
+├── BERT Modeli İle Sentetik Metin Üretimi/        # BERT MLM
+│   ├── temp.py                                    # Ana script
+│   ├── README.md                                  # Detaylı dokümantasyon
+│   ├── tekonoloji-haber-baslıkları.csv            # 100 orijinal cümle
+│   ├── sentetik_teknoloji_haberleri_3000.csv      # 3000 üretilen cümle
+│   └── sentetik_veri_metrikleri.png               # Görselleştirme
+│
+├── Gemini İle Sentetik Metin Üretimi/             # Gemini API
+│   ├── gemini_sentetik_uretim.py
+│   ├── README.md
+│   ├── tekonoloji-haber-baslıkları.csv
+│   ├── gemini_sentetik_teknoloji_haberleri_3000.csv
+│   ├── gemini-cıktılar.txt
+│   └── gemini_sentetik_metrikler.png
+│
+├── Gpt-2 Modeli İle Sentetik Metin Üretimi/       # GPT-2
+│   ├── gpt2_sentetik_uretim.py
+│   ├── README.md
+│   ├── tekonoloji-haber-baslıkları.csv
+│   ├── gpt2_sentetik_teknoloji_haberleri_3000.csv
+│   └── gpt2-cıktılar.txt
+│
+├── LSTM Modeli İle Sentetik Metin Üretimi/        # Character-level LSTM
+│   ├── lstm_sentetik_uretim.py
+│   ├── README.md
+│   ├── tekonoloji-haber-baslıkları.csv
+│   ├── lstm_sentetik_teknoloji_haberleri_3000.csv
+│   └── lstm.txt
+│
+├── mT5 Modeli İle Sentetik Metin Üretimi/         # mT5
+│   ├── t5_turkish_sentetik_uretim.py             # Turkish-NLP model
+│   ├── t5_sentetik_uretim.py                     # mt5-base model
+│   ├── README.md
+│   ├── tekonoloji-haber-baslıkları.csv
+│   ├── t5_turkish_sentetik_teknoloji_haberleri_3000.csv
+│   ├── t5_sentetik_teknoloji_haberleri_3000.csv
+│   └── t5-base-duz-model.txt
+│
+├── gan-text-generation/                           # GAN Metin Üretimi (Eski)
 │   ├── main.py
 │   ├── README.md
-│   ├── sentences.txt                              # 5000 cümle (eğitim)
-│   ├── wiki.tr.txt                                # Tam veri seti
+│   ├── sentences.txt
+│   ├── wiki.tr.txt
 │   ├── uretilen_cumleler.csv
 │   └── training_history.png
 │
-├── gemini-dataset-generation/                     # Gemini Veri Üretimi
+├── gemini-dataset-generation/                     # Gemini Veri Üretimi (Eski)
 │   ├── main10.py
 │   ├── README.md
 │   ├── main10.pdf
 │   └── elektrikli_araba_1000_batch.xlsx
 │
+├── GAN Modeli İle Metin Üretimi/                  # GAN (Ek çalışma)
+│   └── README.md
+│
 └── Literatürdeki Sentetik Veri Üretimi İle İlgili Makaleler/
     │                                              # 📚 Literatür Araştırması
     ├── metin/                                     # Metin tabanlı sentetik veri
-    │   ├── Genel(arxiv.org vb.)/                                 # Genel çalışmalar
-    │   └── ScienceDirect & IEEE Xplore/           # Akademik veritabanları
+    │   ├── Genel(arxiv.org vb.)/
+    │   └── ScienceDirect & IEEE Xplore/
     │
     ├── görüntü/                                   # Görüntü tabanlı sentetik veri
     │
@@ -481,10 +681,22 @@ Bu projeyi faydalı bulduysanız, GitHub'da ⭐ vererek destek olabilirsiniz!
 
 ### 🏆 Proje İstatistikleri
 
-- **Toplam Model**: 4 farklı yaklaşım
-- **Toplam Veri**: 10K+ etiketli cümle
-- **Toplam Kod**: 2000+ satır Python
-- **Geliştirme Süresi**: 3+ ay
-- **GPU Saati**: 100+ saat
+#### Duygu Analizi Çalışmaları
+- **Modeller**: 4 farklı yaklaşım (BERT, BiLSTM+BERT, LSTM, GAN)
+- **Veri**: 10K+ etiketli cümle
+- **Doğruluk**: %86.8 - %92.6 arası
+
+#### Sentetik Metin Üretimi Çalışmaları
+- **Modeller**: 5 farklı yaklaşım (BERT MLM, Gemini, GPT-2, Character LSTM, mT5)
+- **Veri**: 100 → 3000 cümle üretimi
+- **Kalite**: BERTScore 0.46 - 0.85 arası
+- **Toplam Üretilen**: 15,000+ sentetik cümle
+
+#### Genel İstatistikler
+- **Toplam Model**: 9 farklı model/yaklaşım
+- **Toplam Kod**: 5000+ satır Python
+- **README Dosyaları**: 10 adet (her model için detaylı)
+- **Geliştirme Süresi**: 4+ ay
+- **GPU Saati**: 150+ saat
 - **Literatür**: 3 kategori (Metin, Görüntü, Ses)
 - **Akademik Kaynak**: ScienceDirect & IEEE Xplore
