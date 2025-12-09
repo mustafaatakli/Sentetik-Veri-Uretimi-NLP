@@ -1,5 +1,16 @@
 # 🤖 Türkçe Sentetik Veri Üretimi ve NLP: Kapsamlı Karşılaştırmalı Çalışma
 
+<div align="center">
+
+[![Türkçe](https://img.shields.io/badge/Dil-Türkçe-red.svg)](#turkish-version) [![English](https://img.shields.io/badge/Language-English-blue.svg)](#english-version)
+
+</div>
+
+---
+
+<a name="turkish-version"></a>
+## 🇹🇷 Türkçe Versiyon
+
 [![License](https://img.shields.io/badge/License-Proprietary-red.svg)](LICENSE.md)
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
 [![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange.svg)](https://www.tensorflow.org/)
@@ -648,7 +659,6 @@ Bu proje, sentetik veri üretimi konusunda kapsamlı bir literatür taraması i�
 
 Bu proje şu anda **kapalı kaynak** olup, katkılar kabul edilmemektedir. Ancak:
 
-- 🐛 Bug bildirimleri için Issue açabilirsiniz
 - 💡 Öneri ve geri bildirimlerinizi paylaşabilirsiniz
 - ⭐ Projeyi beğendiyseniz yıldız verebilirsiniz
 
@@ -700,3 +710,498 @@ Bu projeyi faydalı bulduysanız, GitHub'da ⭐ vererek destek olabilirsiniz!
 - **GPU Saati**: 150+ saat
 - **Literatür**: 3 kategori (Metin, Görüntü, Ses)
 - **Akademik Kaynak**: ScienceDirect & IEEE Xplore
+
+---
+---
+---
+# 🤖 Turkish Synthetic Data Generation and Sentiment Analysis: Comparative Study
+<a name="english-version"></a>
+## 🇬🇧 English Version
+
+[![License](https://img.shields.io/badge/License-Proprietary-red.svg)](LICENSE.md)
+[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
+[![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange.svg)](https://www.tensorflow.org/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-1.x-red.svg)](https://pytorch.org/)
+
+This project presents a comparative analysis of **four different deep learning approaches** for synthetic data generation and sentiment analysis of **Turkish texts**. Within the scope of the project, both data generation and sentiment classification were performed using **LSTM**, **BiLSTM**, **GAN**, and **BERT** models, and the results were compared with **Google Gemini AI**.
+
+---
+
+## 📋 Table of Contents
+
+- [About the Project](#-about-the-project)
+- [Methods and Results](#-methods-and-results)
+- [Comparative Analysis](#-comparative-analysis)
+- [Project Structure](#-project-structure)
+- [Installation](#-installation)
+- [Usage](#-usage)
+- [Performance Metrics](#-performance-metrics)
+- [Literature Review](#-literature-review)
+- [License](#-license)
+
+---
+
+## 🎯 About the Project
+
+This research project comprehensively examines four different deep learning approaches for Turkish synthetic data generation and sentiment analysis on the topic of **electric cars**:
+
+### 🔬 Research Questions
+1. Which model provides the highest sentiment analysis accuracy for Turkish texts?
+2. How original and high-quality are the results of GAN-based synthetic text generation?
+3. What is the performance-resource balance of BERT and LSTM models?
+4. What is the agreement rate between Gemini AI and traditional models?
+
+### 🎓 Use Cases
+- Natural Language Processing (NLP) research
+- Benchmark studies for synthetic data generation
+- Turkish sentiment analysis model comparisons
+- Educational and academic projects
+- Literature review and state-of-the-art technical examination
+
+---
+
+## 🚀 Methods and Results
+
+### 1️⃣ **BERT Sentiment Analysis**
+📂 Folder: `/bert-sentiment-analysis/`
+
+**Features:**
+- Using `dbmdz/bert-base-turkish-cased` model
+- 3-class sentiment analysis (Positive, Negative, Neutral)
+- Model customized for Turkish via fine-tuning
+- Comparative evaluation with Gemini AI
+
+**Performance:**
+- ✅ **Test Accuracy:** 92.6%
+- ✅ **Gemini Agreement:** 92.3%
+- ✅ **Best Class:** Negative (98%)
+- ⚠️ **Weak Point:** Neutral class (84%)
+
+**Technologies Used:**
+- Transformers (Hugging Face)
+- PyTorch
+- pandas, scikit-learn
+
+---
+
+### 2️⃣ **BiLSTM + BERT Sequence Embedding**
+📂 Folder: `/bilstm-bert-hybrid/`
+
+**Features:**
+- BERT sequence embeddings (768-dimensional vectors)
+- 2-layer Bidirectional LSTM
+- Hybrid architecture preserving word order
+- GPU optimized training
+
+**Performance:**
+- ✅ **Test Accuracy:** 89-92%
+- ✅ **Class-wise F1-Score:** ~90%
+- ✅ **2-4% better than BERT Dense Layer**
+- ✅ **High agreement with Gemini**
+
+**Model Architecture:**
+```
+BERT Embedding (64 × 768)
+    ↓
+Bidirectional LSTM (128 units)
+    ↓
+Bidirectional LSTM (64 units)
+    ↓
+Dense + Dropout
+    ↓
+Softmax (3 classes)
+```
+
+---
+
+### 3️⃣ **LSTM Sentiment Analysis**
+📂 Folder: `/lstm-sentiment/`
+
+**Features:**
+- Pure Bidirectional LSTM architecture
+- Lightweight and fast model
+- Early stopping and learning rate scheduling
+- Detailed comparison with Gemini
+
+**Performance:**
+- ✅ **Test Accuracy:** 86.8%
+- ✅ **Gemini Agreement:** 87.5%
+- ✅ **Training Time:** ~10 minutes (faster than BERT)
+- ✅ **Model Size:** 1-2M parameters (BERT: 110M)
+- ✅ **Memory Usage:** 2-3 GB (BERT: 6-8 GB)
+
+**Highlights:**
+- Lightest and fastest model
+- Ideal for resource-constrained environments
+- Reasonable performance/efficiency balance
+
+---
+
+### 4️⃣ **GAN-based Synthetic Text Generation**
+📂 Folder: `/gan-text-generation/`
+
+**Features:**
+- LSTM-based Generator and Discriminator
+- Training with Turkish Wikipedia data
+- Uniqueness check with cosine similarity
+- Quality scoring system
+
+**Data Generation Performance:**
+- ✅ **Generated Sentences:** 1000+ unique sentences
+- ✅ **Average Words:** 7-8 words/sentence
+- ✅ **Quality Score:** 0.688/1.0
+- ✅ **Similarity Check:** 77% uniqueness
+
+**Use Cases:**
+- Data augmentation
+- Training dataset expansion
+- Synthetic benchmark datasets
+
+---
+
+### 5️⃣ **Dataset Generation and Sentiment Analysis with Gemini**
+📂 Folder: `/gemini-dataset-generation/`
+
+**Features:**
+- Using Google Gemini 2.5 Flash API
+- Batch generation (100 sentences/request)
+- Dual hybrid quality scoring (Factorial + Perplexity)
+- Semantic similarity filter
+
+**Generation Metrics:**
+- ✅ **Generated Sentences:** 1000
+- ✅ **API Requests:** 42 batches
+- ✅ **Duration:** 50.5 minutes
+- ✅ **Quality Score:** 0.688 average
+- ✅ **Sentiment Distribution:** 40% positive, 40% neutral, 20% negative
+
+**Perplexity Model:**
+- Naturalness check with `ytu-ce-cosmos/turkish-gpt2`
+
+---
+
+## 📊 Comparative Analysis
+
+### 🏆 Model Performance (Test Set)
+
+| Model | Accuracy | Precision | Recall | F1-Score | Gemini Agreement |
+|-------|----------|-----------|--------|----------|------------------|
+| **BERT** | **92.6%** 🥇 | 0.926 | 0.926 | 0.926 | **92.3%** 🥇 |
+| **BiLSTM+BERT** | 89-92% 🥈 | ~0.90 | ~0.90 | ~0.90 | High |
+| **LSTM** | 86.8% 🥉 | 0.870 | 0.868 | 0.867 | 87.5% |
+
+### ⚡ Efficiency Comparison
+
+| Metric | BERT | BiLSTM+BERT | LSTM |
+|--------|------|-------------|------|
+| **Training Time** | ~15-20 min | ~12-15 min | **~10 min** ✅ |
+| **Model Size** | 110M params | ~60M params | **1-2M params** ✅ |
+| **Memory (GPU)** | 6-8 GB | 4-6 GB | **2-3 GB** ✅ |
+| **Inference Speed** | Slow | Medium | **Fast** ✅ |
+
+### 🎯 Class-wise Performance
+
+#### **Negative Class** (Most Successful)
+- BERT: **98%** 🏆
+- BiLSTM+BERT: ~95%
+- LSTM: 93%
+
+#### **Positive Class**
+- BERT: **94%** 🏆
+- BiLSTM+BERT: ~92%
+- LSTM: 90%
+
+#### **Neutral Class** ⚠️ (Weak in All Models)
+- BERT: **84%** 🏆
+- BiLSTM+BERT: ~82%
+- LSTM: 75%
+
+### 🔍 Key Findings
+
+1. **BERT Highest Accuracy**: Best performance at 92.6%
+2. **LSTM Most Efficient**: Least resources, fastest training
+3. **BiLSTM+BERT Good Balance**: Performance-efficiency balance
+4. **Neutral Class Challenging**: Improvement needed in all models
+5. **Gemini High Consistency**: 87-92% agreement range
+6. **GAN Successful Generation**: 1000+ unique Turkish sentences
+
+### 🤔 Which Model to Choose?
+
+| Scenario | Recommended Model | Why? |
+|----------|-------------------|------|
+| **Maximum Accuracy** | BERT | Highest accuracy (92.6%) |
+| **Mobile/Embedded** | LSTM | Lightest model (1-2M params) |
+| **Balanced Solution** | BiLSTM+BERT | Good performance + acceptable resources |
+| **Real-time** | LSTM | Fastest inference time |
+| **Data Generation** | GAN + Gemini | Unique and quality synthetic data |
+
+---
+
+## 📁 Project Structure
+
+```
+synthetic-data-generation-nlp/
+│
+├── README.md                                      # Main documentation (this file)
+├── LICENSE.md                                     # License information
+│
+├── bert-sentiment-analysis/                       # BERT Sentiment Analysis
+│   ├── main.py
+│   ├── README.md
+│   ├── egitim-veriseti-5k.xlsx
+│   ├── bert_vs_gemini_sonuc_1k.xlsx
+│   └── etiketsiz-test-gemini-etiketlenmis-1k.xlsx
+│
+├── bilstm-bert-hybrid/                            # BiLSTM + BERT Hybrid
+│   ├── main.py
+│   ├── README.md
+│   ├── egitim-veriseti.xlsx
+│   ├── etiketsiz-test-gemini-etiketlenmis.xlsx
+│   └── bert_vs_gemini_sonuc.xlsx
+│
+├── lstm-sentiment/                                # LSTM Sentiment Analysis
+│   ├── main.py
+│   ├── README.md
+│   ├── egitim-veriseti-5k.xlsx
+│   ├── lstm_vs_gemini_sonuc_1k.xlsx
+│   └── etiketsiz-test-gemini-etiketlenmis-1k.xlsx
+│
+├── gan-text-generation/                           # GAN Text Generation
+│   ├── main.py
+│   ├── README.md
+│   ├── sentences.txt                              # 5000 sentences (training)
+│   ├── wiki.tr.txt                                # Full dataset
+│   ├── uretilen_cumleler.csv
+│   └── training_history.png
+│
+├── gemini-dataset-generation/                     # Gemini Data Generation
+│   ├── main10.py
+│   ├── README.md
+│   ├── main10.pdf
+│   └── elektrikli_araba_1000_batch.xlsx
+│
+└── Literatürdeki Sentetik Veri Üretimi İle İlgili Makaleler/
+    │                                              # 📚 Literature Review
+    ├── metin/                                     # Text-based synthetic data
+    │   ├── Genel(arxiv.org vb.)/                 # General studies
+    │   └── ScienceDirect & IEEE Xplore/           # Academic databases
+    │
+    ├── görüntü/                                   # Image-based synthetic data
+    │
+    └── ses/                                       # Audio-based synthetic data
+```
+
+---
+
+## 🛠️ Installation
+
+### System Requirements
+
+**Hardware:**
+- GPU: NVIDIA GPU (recommended: Tesla T4 or higher)
+- RAM: Minimum 8GB (recommended: 16GB+)
+- Storage: ~5GB (for all models)
+
+**Software:**
+- Python 3.8+
+- CUDA 11.x (for GPU)
+- pip or conda
+
+### Core Libraries
+
+```bash
+# Common for all projects
+pip install pandas numpy openpyxl scikit-learn
+
+# For BERT projects
+pip install torch transformers
+
+# For LSTM projects
+pip install tensorflow
+
+# For GAN project
+pip install torch sentence-transformers
+
+# For Gemini project
+pip install google-generativeai
+```
+
+### Project-specific Installation
+
+Detailed installation instructions are available in the README.md file in each subfolder.
+
+---
+
+## 🚀 Usage
+
+### Quick Start
+
+1. **Clone the Repository**
+```bash
+git clone https://github.com/username/synthetic-data-generation.git
+cd synthetic-data-generation
+```
+
+2. **Navigate to Your Interested Project**
+```bash
+cd bert-sentiment-analysis/  # or lstm-sentiment, gan-text-generation, etc.
+```
+
+3. **Follow README Instructions**
+Each folder's README.md contains project-specific installation and execution steps.
+
+### Using Kaggle/Colab
+
+All projects perform best in **GPU-enabled** environments:
+
+1. Open Kaggle Notebook or Google Colab
+2. Activate GPU T4 x2 accelerator
+3. Upload relevant datasets
+4. Run `main.py` code
+
+---
+
+## 📈 Performance Metrics
+
+### Accuracy Comparison
+
+```
+█████████████████████████████████████████████████ 92.6% BERT
+████████████████████████████████████████████      91.0% BiLSTM+BERT (average)
+█████████████████████████████████████████         86.8% LSTM
+```
+
+### Model Size Comparison
+
+```
+████████████████████████████████████████████████████████████ 110M BERT
+██████████████████████████████████                               60M BiLSTM+BERT
+█                                                            1.5M LSTM
+```
+
+### Training Time (GPU T4 x2)
+
+```
+████████████████████ 20 min BERT
+███████████████      15 min BiLSTM+BERT
+██████████           10 min LSTM
+```
+
+---
+
+## 🎓 Lessons Learned
+
+### ✅ Successes
+
+1. **BERT Very Powerful**: Excellent results in Turkish with transfer learning
+2. **LSTM Still Valuable**: Fast and effective for resource-constrained scenarios
+3. **Hybrid Approach Good**: BiLSTM+BERT provides balance point
+4. **GAN Works**: Applicable for Turkish text generation
+5. **Gemini Reliable**: Consistent for labeling and comparison
+
+### ⚠️ Challenges
+
+1. **Neutral Class Difficult**: Lowest performance in all models
+2. **Positive-Neutral Confusion**: Most difference between models and Gemini here
+3. **GAN Training Sensitive**: Hyperparameter tuning critical
+4. **Resource Intensive**: BERT models require large GPU memory
+5. **Turkish Data Scarcity**: Finding quality labeled data is challenging
+
+### 🔮 Future Improvements
+
+- [ ] Special model training for neutral class
+- [ ] Larger datasets (10K+ sentences)
+- [ ] New architectures like Transformer-XL
+- [ ] Multi-task learning approaches
+- [ ] Ensemble modeling (BERT + LSTM)
+- [ ] Fine-tuned Turkish GPT models
+
+---
+
+## 📚 Literature Review
+
+This project includes a comprehensive literature review on synthetic data generation. In the **Literatürdeki Sentetik Veri Üretimi İle İlgili Makaleler** folder, academic studies for different data types are categorized:
+
+### 📝 Text-based Synthetic Data
+- **General**: General studies compiled from various sources
+- **ScienceDirect & IEEE Xplore**: Selected articles from academic databases
+- Studies on GAN, LSTM, BERT, and transformer-based text generation
+- Turkish and multilingual synthetic data generation approaches
+
+### 🖼️ Image-based Synthetic Data
+- GAN, VAE, and Diffusion models for image generation
+- Synthetic image quality evaluation metrics
+- Data augmentation for computer vision applications
+
+### 🔊 Audio-based Synthetic Data
+- TTS (Text-to-Speech) systems
+- Data augmentation with speech synthesis
+- Synthetic data for speech recognition systems
+
+> **Note**: This folder consists of resources forming the theoretical foundation of the project and serves as a reference for researchers.
+
+---
+
+## 📚 References and Resources
+
+### Models
+
+- **BERT**: [dbmdz/bert-base-turkish-cased](https://huggingface.co/dbmdz/bert-base-turkish-cased)
+- **Turkish GPT-2**: [ytu-ce-cosmos/turkish-gpt2](https://huggingface.co/ytu-ce-cosmos/turkish-gpt2)
+- **Gemini AI**: [Google DeepMind](https://deepmind.google/technologies/gemini/)
+
+### Datasets
+
+- **Turkish Wikipedia**: [Turkish Sentences Dataset](https://www.kaggle.com/datasets/mahdinamidamirchi/turkish-sentences-dataset)
+
+### Libraries
+
+- **Transformers**: [Hugging Face](https://huggingface.co/docs/transformers/)
+- **TensorFlow**: [tensorflow.org](https://www.tensorflow.org/)
+- **PyTorch**: [pytorch.org](https://pytorch.org/)
+
+---
+
+## 🤝 Contributing
+
+This project is currently **closed source** and does not accept contributions. However:
+
+- 💡 You can share your suggestions and feedback
+- ⭐ If you like the project, you can give it a star
+
+---
+
+## 📧 Contact
+
+For questions about the project:
+
+- **Developer**: Mustafa Ataklı
+- **GitHub**: [github.com/username](https://github.com/username)
+- **Email**: [email@example.com](mailto:email@example.com)
+
+---
+
+## 📄 License
+
+```
+All rights reserved © 2025 Mustafa Ataklı.
+
+Unauthorized use, copying, or distribution is strictly prohibited.
+For detailed information, please refer to the LICENSE.md file.
+```
+
+---
+
+## ⭐ Don't Forget to Star!
+
+If you found this project useful, you can support by giving a ⭐ on GitHub!
+
+### 🏆 Project Statistics
+
+- **Total Models**: 4 different approaches
+- **Total Data**: 10K+ labeled sentences
+- **Total Code**: 2000+ lines of Python
+- **Development Time**: 3+ months
+- **GPU Hours**: 100+ hours
+- **Literature**: 3 categories (Text, Image, Audio)
+- **Academic Sources**: ScienceDirect & IEEE Xplore

@@ -2,7 +2,7 @@
 
 Bu proje, PyTorch kullanılarak geliştirilmiş bir Üretici Çekişmeli Ağ (Generative Adversarial Network - GAN) modelidir. Model, Türkçe Vikipedi verileriyle eğitilerek özgün ve anlamsal olarak tutarlı yeni cümleler üretmeyi amaçlamaktadır.
 
-![Eğitim Grafiği](training_history.png)
+![Eğitim Grafiği](gan-grafik.png)
 
 ##  Genel Bakış
 
