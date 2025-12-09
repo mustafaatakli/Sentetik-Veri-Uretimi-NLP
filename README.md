@@ -37,7 +37,7 @@ Bu proje, **Türkçe metinler** için sentetik veri üretimi ve duygu analizi ü
 
 ## 🎯 Proje Hakkında
 
-Bu araştırma projesi, **elektrikli arabalar** konusunda Türkçe sentetik veri üretimi ve duygu analizi için dört farklı derin öğrenme yaklaşımını kapsamlı bir şekilde incelemektedir:
+Bu araştırma projesinin ilk adımında, **elektrikli arabalar** konusunda Türkçe sentetik veri üretimi ve duygu analizi için dört farklı derin öğrenme yaklaşımı ve 2. adımında ise **teknoloji haber başlıkları** konusunda "BERT", "LSTM", "LLMs", "mT5" modelleri ile kapsamlı bir şekilde incelemektedir:
 
 ### 🔬 Araştırma Soruları
 1. Hangi model Türkçe metinler için en yüksek duygu analizi doğruluğunu sağlar?
@@ -743,7 +743,7 @@ This project presents a comparative analysis of **four different deep learning a
 
 ## 🎯 About the Project
 
-This research project comprehensively examines four different deep learning approaches for Turkish synthetic data generation and sentiment analysis on the topic of **electric cars**:
+In the first step of this research project, four different deep learning approaches are examined for Turkish synthetic data generation and sentiment analysis on the subject of **electric cars**, and in the second step, it is examined comprehensively with "BERT", "LSTM", "LLMs", "mT5" models on the subject of **technology news headlines**:
 
 ### 🔬 Research Questions
 1. Which model provides the highest sentiment analysis accuracy for Turkish texts?
